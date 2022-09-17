@@ -1,9 +1,7 @@
 let express = require('express');
 let app = express();
 
-staticPath = __dirname + '/public';
-console.log(staticPath);
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 
 
 app.get("/", function(req, res){
