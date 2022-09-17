@@ -1,9 +1,9 @@
 let express = require('express');
 let app = express();
 
-console.log("Hello World");
+console.log(staticPath);
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(staticPath))
 
 app.get("/", function(req, res){
     //res.send('Hello Express');
