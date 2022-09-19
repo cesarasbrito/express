@@ -4,13 +4,18 @@ require('dotenv').config();
 
 
 app.use("/public", express.static(__dirname + "/public"));
-value = process.env.MESSAGE_STYLE;
-console.log(value)
-console.log(process.env.MESSAGE_STYLE)
+
+const myLogger = function (req, res, next) {
+    var stringMsg = req.method + " " + req.path + " - " + req.ip;
+    console.log(stringMsg)
+    next()
+  }
+app.use(myLogger)
+
+
 
 app.get("/json",function(req, res){
-
-    
+ 
     if(process.env.MESSAGE_STYLE === 'uppercase'){
         res.json({"message": "HELLO JSON"});     
     }
