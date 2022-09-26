@@ -3,6 +3,8 @@ let app = express();
 require('dotenv').config();
 
 
+
+
 app.use("/public", express.static(__dirname + "/public"));
 
 const myLogger = function (req, res, next) {
@@ -12,6 +14,11 @@ const myLogger = function (req, res, next) {
   }
 app.use(myLogger)
 
+
+app.get("/:word/echo", function(req, res){
+    var param1 = req.params.param1;
+    res.json(req.params);
+});
 
 
 app.get("/now", function(req, res, next){
