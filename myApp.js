@@ -15,6 +15,20 @@ const myLogger = function (req, res, next) {
 app.use(myLogger)
 
 
+//get query string
+app.get("/name", function(req, res){
+    var firstName = req.query.firstname;
+    var lastName = req.query.lastName;
+    console.log(req.query)
+    console.log(firstName)
+    console.log(lastName)
+    res.json({
+        name: `${firstName} ${lastName}`
+      });
+});
+
+
+//get parameter
 app.get("/:word/echo", function(req, res){
     const { word } = req.params;
     res.json({
