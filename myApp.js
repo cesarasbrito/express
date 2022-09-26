@@ -16,8 +16,10 @@ app.use(myLogger)
 
 
 app.get("/:word/echo", function(req, res){
-    var param1 = req.params.param1;
-    res.json(req.params);
+    const { word } = req.params;
+    res.json({
+      echo: word
+    });
 });
 
 
