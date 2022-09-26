@@ -14,6 +14,15 @@ app.use(myLogger)
 
 
 
+app.get("/now", function(req, res, next){
+    console.log('now endpont')
+    req.time = {"time": new Date().toString()};
+    next();
+}, function(req, res) {
+    res.send(req.time);
+  });
+
+
 app.get("/json",function(req, res){
  
     if(process.env.MESSAGE_STYLE === 'uppercase'){
