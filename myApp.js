@@ -17,8 +17,8 @@ app.use(myLogger)
 
 //get query string
 app.get("/name", function(req, res){
-    var firstName = req.query.firstname;
-    var lastName = req.query.lastName;
+    var firstName = req.query.first;
+    var lastName = req.query.last;
     console.log(req.query)
     console.log(firstName)
     console.log(lastName)
